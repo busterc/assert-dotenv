@@ -1,0 +1,34 @@
+{
+  "name": "assert-dotenv",
+  "version": "1.0.0",
+  "description": "One fell swoop for loading and asserting environment settings in node.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/busterc/assert-dotenv"
+  },
+  "homepage": "https://github.com/busterc/assert-dotenv",
+  "keywords": [
+    "dotenv",
+    ".env",
+    "env",
+    "environment",
+    "variables",
+    "config",
+    "settings",
+    "assert"
+  ],
+  "author": "buster",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^0.4.0",
+    "dotenv-assert": "^2.1.0",
+    "find-parent-dir": "^0.3.0"
+  },
+  "devDependencies": {
+    "dotenv-assert": "^2.1.0",
+    "gulp": "^3.8.8",
+    "gulp-jshint": "^1.8.5",
+    "jshint-stylish": "^1.0.0"
+  }
+}
