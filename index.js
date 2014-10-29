@@ -21,11 +21,6 @@ module.exports = function(options, callback) {
     this.name = '  Callback Error';
   }
 
-  function FileNotFoundError(message) {
-    this.message = message;
-    this.name = '  File Not Found Error';
-  }
-
   function loadAndAssert(options, callback) {
     dotenv._getKeysAndValuesFromEnvFilePath(options.dotenvFile);
     dotenv._setEnvs();
@@ -50,26 +45,20 @@ module.exports = function(options, callback) {
 
     // look for explicit dotenv file location
     fs.exists(dotenvFile, function(exists) {
-      if (!exists) {
-        errorMessage = dotenvFile + ' does not exist.';
-        throw new FileNotFoundError(errorMessage);
+      if (exists) {
+        loadAndAssert({
+          dotenvFile: dotenvFile,
+          dotenvAssertOptions: dotenvAssertOptions
+        }, callback);
       }
-
-      loadAndAssert({
-        dotenvFile: dotenvFile,
-        dotenvAssertOptions: dotenvAssertOptions
-      }, callback);
     });
   } else {
 
     // find the dotenv file in $CWD or the nearest parent directory
     findParentDir(CURRENT_WORKING_DIRECTORY, dotenvFile, function(error, directory) {
-      if (error || directory === null) {
-        errorMessage = dotenvFile + ' cannot be found.';
-        throw new FileNotFoundError(errorMessage);
+      if (!error && directory !== null) {
+        dotenvFile = directory + '/' + dotenvFile;
       }
-
-      dotenvFile = directory + '/' + dotenvFile;
 
       loadAndAssert({
         dotenvFile: dotenvFile,
