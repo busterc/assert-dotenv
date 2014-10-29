@@ -4,7 +4,7 @@
 
 One fell swoop for loading and asserting environment settings in node.
 
-## Version 1.0.0
+## Version 2.0.0
 
 ## Why use assert-dotenv
 
@@ -16,9 +16,8 @@ One fell swoop for loading and asserting environment settings in node.
 ## How does it work
 
 An exception is thrown if any of these cases are true:
-  - An `.env` file is not found
   - An `assert.env` file is not found
-  - The keys listed in the `assert.env` file are not set in the `.env` file
+  - The keys listed in the `assert.env` file are not set on the `process.env` node object
   - An Options Object or Callback Function are not passed in arguments
 
 Otherwise, your environment settings are applied and your application executes as expected.
@@ -31,7 +30,7 @@ $ npm install --save assert-dotenv
 ## Usage
 ```javascript
 /**
-*  load .env and assert.env files from CWD or
+*  attempt to load .env and assert.env files from CWD or
 *  from the nearest parent directory where they are found
 */
 require('assert-dotenv')({}, function() {
@@ -98,6 +97,10 @@ require('assert-dotenv')({
   $ node index.js
   Server running at http://127.0.0.1:1337/
   ```
+
+## CHANGELOG
+
+- 2.0.0 No longer throws an exception if a `.env` file is not found
 
 ## LICENSE
 
