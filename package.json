@@ -1,11 +1,15 @@
 {
   "name": "assert-dotenv",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "One fell swoop for loading and asserting environment settings in node.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/busterc/assert-dotenv"
+    "url": "git+https://github.com/busterc/assert-dotenv"
   },
   "homepage": "https://github.com/busterc/assert-dotenv",
   "keywords": [
@@ -19,17 +23,26 @@
     "settings",
     "assert"
   ],
-  "author": "buster",
+  "author": {
+    "name": "Buster Collings",
+    "url": "http://about.me/buster"
+  },
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^0.4.0",
-    "dotenv-assert": "^2.1.0",
-    "find-parent-dir": "^0.3.0"
+    "dotenv": "0.4.0",
+    "dotenv-assert": "^3.0.0",
+    "find-parent-dir": "0.3.0"
   },
   "devDependencies": {
     "dotenv-assert": "^2.1.0",
-    "gulp": "^3.8.8",
-    "gulp-jshint": "^1.8.5",
-    "jshint-stylish": "^1.0.0"
+    "gulp": "^3.9.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.10.0",
+    "gulp-jscs": "^2.0.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.3",
+    "gulp-nsp": "^0.4.5",
+    "gulp-plumber": "^1.0.1",
+    "jshint-stylish": "^2.0.1"
   }
 }
